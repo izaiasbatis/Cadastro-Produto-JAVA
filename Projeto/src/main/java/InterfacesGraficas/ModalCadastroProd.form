@@ -2,7 +2,7 @@
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,36 +23,23 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="TextoCodigo" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="TextoCodigoBarras" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextField3CodBarras" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="jTextField1Codigo" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="TextoCodigo" min="-2" pref="38" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Component id="TextoProduto" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Component id="jTextField1Codigo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jTextField2Produto" min="-2" pref="378" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TextoUN" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField4UN" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="TextoCodigoBarras" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                              <EmptySpace pref="41" max="-2" attributes="0"/>
                               <Component id="TextoPesoBruto" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTextField3CodBarras" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField1PesoBruto" min="-2" pref="101" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jTextField1PesoBruto" alignment="0" min="-2" pref="101" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -63,15 +50,30 @@
                               <Component id="BotaoProdutoAtivoNao" min="-2" pref="61" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="TextoProduto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jTextField2Produto" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="TextoUN" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField4UN" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="61" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="112" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <Component id="BotaoFinalizar" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="BotaoCancelar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="722" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,31 +81,36 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="TextoCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TextoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="TextoUN" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextField1Codigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2Produto" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField4UN" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="TextoCodigoBarras" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TextoPesoBruto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextoCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TextoProduto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField3CodBarras" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1PesoBruto" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jTextField1Codigo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="TextoCodigoBarras" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextField3CodBarras" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="TextoPesoBruto" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextField1PesoBruto" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="TextoUN" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextField2Produto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextField4UN" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="TextoProdutoAtivo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -117,35 +124,12 @@
                   <Component id="BotaoFinalizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BotaoCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextField1Codigo">
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2Produto">
-    </Component>
-    <Component class="javax.swing.JLabel" name="TextoCodigo">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;d:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3CodBarras">
-    </Component>
-    <Component class="javax.swing.JLabel" name="TextoProduto">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Produto:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4UN">
-    </Component>
-    <Component class="javax.swing.JLabel" name="TextoCodigoBarras">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C&#xf3;digo Barras:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="TextoUN">
       <Properties>
         <Property name="text" type="java.lang.String" value="UN:"/>
@@ -172,21 +156,47 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoProdutoAtivoNaoActionPerformed"/>
       </Events>
     </Component>
+    <Component class="javax.swing.JTextField" name="jTextField1Codigo">
+    </Component>
     <Component class="javax.swing.JLabel" name="TextoPesoBruto">
       <Properties>
         <Property name="text" type="java.lang.String" value="Peso Bruto:"/>
       </Properties>
     </Component>
+    <Component class="javax.swing.JTextField" name="jTextField2Produto">
+    </Component>
     <Component class="javax.swing.JTextField" name="jTextField1PesoBruto">
+    </Component>
+    <Component class="javax.swing.JLabel" name="TextoCodigo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C&#xf3;d:"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BotaoFinalizar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Finalizar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotaoFinalizarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField3CodBarras">
     </Component>
     <Component class="javax.swing.JButton" name="BotaoCancelar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="TextoProduto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Produto:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextField4UN">
+    </Component>
+    <Component class="javax.swing.JLabel" name="TextoCodigoBarras">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo Barras:"/>
       </Properties>
     </Component>
   </SubComponents>

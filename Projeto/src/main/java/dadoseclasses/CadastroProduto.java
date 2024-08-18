@@ -12,8 +12,8 @@ import javax.swing.table.AbstractTableModel;
 public class CadastroProduto {
     private String Codigo;
     private String Produto;
-    private int CodigoBarra;
-    private double UN;
+    private String CodigoBarra;
+    private String UN;
     private double PesoBruto;
 
     /*Encapsulando as entradas:
@@ -22,8 +22,7 @@ public class CadastroProduto {
     -Encapsulate fields
     -Selecionando tudo
     */
-   
-    
+
     /**
      * @return the Codigo
      */
@@ -55,28 +54,28 @@ public class CadastroProduto {
     /**
      * @return the CodigoBarra
      */
-    public int getCodigoBarra() {
+    public String getCodigoBarra() {
         return CodigoBarra;
     }
 
     /**
      * @param CodigoBarra the CodigoBarra to set
      */
-    public void setCodigoBarra(int CodigoBarra) {
+    public void setCodigoBarra(String CodigoBarra) {
         this.CodigoBarra = CodigoBarra;
     }
 
     /**
      * @return the UN
      */
-    public double getUN() {
+    public String getUN() {
         return UN;
     }
 
     /**
      * @param UN the UN to set
      */
-    public void setUN(double UN) {
+    public void setUN(String UN) {
         this.UN = UN;
     }
 
@@ -93,6 +92,5 @@ public class CadastroProduto {
     public void setPesoBruto(double PesoBruto) {
         this.PesoBruto = PesoBruto;
     }
-    
-    
+   
 }
