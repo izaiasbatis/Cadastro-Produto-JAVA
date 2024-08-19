@@ -98,6 +98,11 @@ public class TelaMatriz extends javax.swing.JFrame {
         BotaoPesquisar.setText("Pesquisar");
 
         BotaoLimpar.setText("Limpar");
+        BotaoLimpar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoLimparActionPerformed(evt);
+            }
+        });
 
         BotaoProdutoAtivoSim.setText("Sim");
         BotaoProdutoAtivoSim.addActionListener(new java.awt.event.ActionListener() {
@@ -240,6 +245,12 @@ public class TelaMatriz extends javax.swing.JFrame {
     private void BotaoProdutoAtivoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoProdutoAtivoNaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotaoProdutoAtivoNaoActionPerformed
+
+    private void BotaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoLimparActionPerformed
+        /*aqui chamamos o metodo remover e passamos o parametro tabela atual com função getSelectedRow*/
+        TabelaModelo.Remover(this.TABELA.getSelectedRow());
+        
+    }//GEN-LAST:event_BotaoLimparActionPerformed
 
     /**
      * @param args the command line arguments
