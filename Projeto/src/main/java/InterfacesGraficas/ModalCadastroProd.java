@@ -15,11 +15,13 @@ public class ModalCadastroProd extends javax.swing.JFrame {
     /**
      * Creates new form ModalCadastroProd
      */
+    private void produto(CadastroProduto prod){
+    }
     private TelaMatriz Matriz;
     public ModalCadastroProd(TelaMatriz aThis) {
         this.Matriz = aThis;
         initComponents();
-        
+                
     }
 
     /**

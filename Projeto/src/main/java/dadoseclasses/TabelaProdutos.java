@@ -24,6 +24,10 @@ import javax.swing.table.AbstractTableModel;
     /*instanciando o array*/
     this.TabelaProduto = new ArrayList<CadastroProduto>();
     }
+    /*criando um método/função para chamar a linha do produto selecionado afim de editar*/
+    public CadastroProduto selectproduto( int linha){
+        return this.TabelaProduto.get(linha);
+    }
     /*Criando metodo para adicionar o conteúdo e atualizar a tabela*/
     public void Adicionar(CadastroProduto cad){
     this.TabelaProduto.add(cad);

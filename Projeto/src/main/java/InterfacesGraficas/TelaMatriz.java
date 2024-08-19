@@ -25,10 +25,12 @@ public class TelaMatriz extends javax.swing.JFrame {
         this.TABELA.setModel(TabelaModelo);
         
     }
+
     public void AdicionarProduto(CadastroProduto cad){
         /*aqui importando o metodo adicionar*/
         TabelaModelo.Adicionar(cad);
     }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -80,6 +82,11 @@ public class TelaMatriz extends javax.swing.JFrame {
         });
 
         BotaoAlterar.setText("Alterar");
+        BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoAlterarActionPerformed(evt);
+            }
+        });
 
         BotaoInativar.setText("Inativar");
 
@@ -251,6 +258,14 @@ public class TelaMatriz extends javax.swing.JFrame {
         TabelaModelo.Remover(this.TABELA.getSelectedRow());
         
     }//GEN-LAST:event_BotaoLimparActionPerformed
+    
+    private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
+        CadastroProduto produto = new CadastroProduto();
+        
+        ModalCadastroProd cad = new ModalCadastroProd(this);
+       // produto = TabelaModelo.selectproduto(this.TABELA.getSelectedRow());
+        cad.setVisible(true);
+    }//GEN-LAST:event_BotaoAlterarActionPerformed
 
     /**
      * @param args the command line arguments
