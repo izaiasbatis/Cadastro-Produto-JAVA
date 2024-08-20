@@ -260,9 +260,13 @@ public class TelaMatriz extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoLimparActionPerformed
     
     private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
+        /*sempre instanciar a classe principal*/
         CadastroProduto produto = new CadastroProduto();
-        
+        /*aqui estamos atribuindo um valor a instânica/classe com a linha selecionada */
+        produto = TabelaModelo.selectproduto(this.TABELA.getSelectedRow());
+        /* aqui estamos instanciando a tela de cadastro de produto com parÂmetro esta interface*/
         ModalCadastroProd cad = new ModalCadastroProd(this);
+        cad.preencherproduto(produto);
        // produto = TabelaModelo.selectproduto(this.TABELA.getSelectedRow());
         cad.setVisible(true);
     }//GEN-LAST:event_BotaoAlterarActionPerformed

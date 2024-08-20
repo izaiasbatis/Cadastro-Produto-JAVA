@@ -15,7 +15,12 @@ public class ModalCadastroProd extends javax.swing.JFrame {
     /**
      * Creates new form ModalCadastroProd
      */
-    private void produto(CadastroProduto prod){
+    public void preencherproduto(CadastroProduto prod){
+        jTextField1Codigo.setText(prod.getCodigo());
+        jTextField2Produto.setText(prod.getProduto());
+        jTextField3CodBarras.setText(prod.getCodigoBarra());
+        jTextField4UN.setText(prod.getUN());
+        jTextField1PesoBruto.setText(prod.getPesoBruto()+"");
     }
     private TelaMatriz Matriz;
     public ModalCadastroProd(TelaMatriz aThis) {
