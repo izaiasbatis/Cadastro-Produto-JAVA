@@ -45,6 +45,7 @@ public class TelaMatriz extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         BotaoNovo = new javax.swing.JButton();
         BotaoAlterar = new javax.swing.JButton();
         BotaoInativar = new javax.swing.JButton();
@@ -65,6 +66,7 @@ public class TelaMatriz extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         TABELA = new javax.swing.JTable();
+        BotaoRemover = new javax.swing.JButton();
 
         jRadioButtonMenuItem1.setSelected(true);
         jRadioButtonMenuItem1.setText("jRadioButtonMenuItem1");
@@ -74,6 +76,7 @@ public class TelaMatriz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        BotaoNovo.setIcon(new javax.swing.ImageIcon("C:\\Users\\Aluno\\Downloads\\botao-adicionar.png")); // NOI18N
         BotaoNovo.setText("Novo");
         BotaoNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -82,6 +85,7 @@ public class TelaMatriz extends javax.swing.JFrame {
         });
 
         BotaoAlterar.setText("Alterar");
+        BotaoAlterar.setEnabled(false);
         BotaoAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoAlterarActionPerformed(evt);
@@ -89,8 +93,10 @@ public class TelaMatriz extends javax.swing.JFrame {
         });
 
         BotaoInativar.setText("Inativar");
+        BotaoInativar.setEnabled(false);
 
         BotaoAtivar.setText("Ativar");
+        BotaoAtivar.setEnabled(false);
 
         TextoCodigo.setText("Cód:");
 
@@ -111,6 +117,7 @@ public class TelaMatriz extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(BotaoProdutoAtivoSim);
         BotaoProdutoAtivoSim.setText("Sim");
         BotaoProdutoAtivoSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +125,7 @@ public class TelaMatriz extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(BotaoProdutoAtivoNao);
         BotaoProdutoAtivoNao.setText("Não");
         BotaoProdutoAtivoNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +146,20 @@ public class TelaMatriz extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        TABELA.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TABELAMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(TABELA);
+
+        BotaoRemover.setText("Remover");
+        BotaoRemover.setEnabled(false);
+        BotaoRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoRemoverActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,92 +168,97 @@ public class TelaMatriz extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jTextField1Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoProduto)
+                            .addComponent(jTextField2Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(TextoCodigoBarras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(BotaoInativar)
+                                        .addGap(82, 82, 82)
+                                        .addComponent(BotaoAtivar))
+                                    .addComponent(TextoUN))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(TextoProdutoAtivo)
+                                .addGap(39, 39, 39))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField3CodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addComponent(jTextField4UN, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotaoPesquisar)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BotaoProdutoAtivoSim)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotaoProdutoAtivoNao, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BotaoNovo)
-                            .addComponent(TextoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(70, 70, 70)
-                        .addComponent(BotaoAlterar)
-                        .addGap(119, 119, 119)
-                        .addComponent(BotaoInativar)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TextoCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(80, 80, 80)
-                                .addComponent(BotaoAtivar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextoCodigoBarras)
-                                    .addComponent(jTextField3CodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextoUN)
-                                    .addComponent(jTextField4UN, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TextoProdutoAtivo)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(BotaoProdutoAtivoSim)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(BotaoProdutoAtivoNao, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 862, Short.MAX_VALUE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jTextField1Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(TextoProduto)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextField2Produto, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(BotaoPesquisar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(BotaoLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(42, 42, 42))))
+                                .addComponent(BotaoNovo)
+                                .addGap(135, 135, 135)
+                                .addComponent(BotaoAlterar)
+                                .addGap(122, 122, 122)
+                                .addComponent(BotaoRemover)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(95, 95, 95)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotaoInativar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAtivar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotaoAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotaoNovo)
-                    .addComponent(BotaoInativar)
-                    .addComponent(BotaoAtivar)
-                    .addComponent(BotaoAlterar))
-                .addGap(14, 14, 14)
+                    .addComponent(BotaoRemover, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(115, 115, 115)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(TextoCodigo)
-                                .addComponent(TextoProduto)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(TextoCodigo)
+                                    .addComponent(TextoProduto))
                                 .addComponent(TextoProdutoAtivo))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextField1Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2Produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(BotaoProdutoAtivoSim)
+                                    .addComponent(BotaoProdutoAtivoNao))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(TextoCodigoBarras)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextField3CodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(BotaoPesquisar)
                                 .addComponent(BotaoLimpar)
-                                .addComponent(jTextField1Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField2Produto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BotaoProdutoAtivoSim)
-                                .addComponent(BotaoProdutoAtivoNao)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(TextoUN)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField4UN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(TextoCodigoBarras)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3CodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField4UN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(TextoUN))
+                .addGap(12, 12, 12)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(12, 12, 12)
                 .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
@@ -246,7 +272,8 @@ public class TelaMatriz extends javax.swing.JFrame {
     }//GEN-LAST:event_BotaoNovoActionPerformed
 
     private void BotaoProdutoAtivoSimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoProdutoAtivoSimActionPerformed
-        // TODO add your handling code here:
+        ModalCadastroProd modal = new ModalCadastroProd(this);
+        modal.setVisible(true);
     }//GEN-LAST:event_BotaoProdutoAtivoSimActionPerformed
 
     private void BotaoProdutoAtivoNaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoProdutoAtivoNaoActionPerformed
@@ -261,15 +288,33 @@ public class TelaMatriz extends javax.swing.JFrame {
     
     private void BotaoAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoAlterarActionPerformed
         /*sempre instanciar a classe principal*/
-        CadastroProduto produto = new CadastroProduto();
+        CadastroProduto produto = new CadastroProduto(); 
         /*aqui estamos atribuindo um valor a instânica/classe com a linha selecionada */
         produto = TabelaModelo.selectproduto(this.TABELA.getSelectedRow());
         /* aqui estamos instanciando a tela de cadastro de produto com parÂmetro esta interface*/
         ModalCadastroProd cad = new ModalCadastroProd(this);
         cad.preencherproduto(produto);
+        /*removendo a linha selecionada antes de abrir na p´roxima página*/
+        TabelaModelo.Remover(this.TABELA.getSelectedRow());
        // produto = TabelaModelo.selectproduto(this.TABELA.getSelectedRow());
         cad.setVisible(true);
     }//GEN-LAST:event_BotaoAlterarActionPerformed
+
+    private void BotaoRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoRemoverActionPerformed
+        /*aqui estou importando um metodo da tabela de produto*/
+        TabelaModelo.Remover(this.TABELA.getSelectedRow());
+        
+    }//GEN-LAST:event_BotaoRemoverActionPerformed
+
+    private void TABELAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TABELAMouseClicked
+       /*antes de adicionar o habilitar componente, vale a pena ir até o botão ou o que pretende desabilitar e realizar a desabilitação no layoute botao direito properties fegar enable 
+        depois adicione o setEnabled(true) no evendo que aciona*/
+        
+        BotaoAlterar.setEnabled(true);
+        BotaoAtivar.setEnabled(true);
+        BotaoRemover.setEnabled(true);
+        BotaoInativar.setEnabled(true);
+    }//GEN-LAST:event_TABELAMouseClicked
 
     /**
      * @param args the command line arguments
@@ -315,6 +360,7 @@ public class TelaMatriz extends javax.swing.JFrame {
     private javax.swing.JButton BotaoPesquisar;
     private javax.swing.JRadioButton BotaoProdutoAtivoNao;
     private javax.swing.JRadioButton BotaoProdutoAtivoSim;
+    private javax.swing.JButton BotaoRemover;
     private javax.swing.JTable TABELA;
     private javax.swing.JLabel TextoCodigo;
     private javax.swing.JLabel TextoCodigoBarras;
@@ -323,6 +369,7 @@ public class TelaMatriz extends javax.swing.JFrame {
     private javax.swing.JLabel TextoUN;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;

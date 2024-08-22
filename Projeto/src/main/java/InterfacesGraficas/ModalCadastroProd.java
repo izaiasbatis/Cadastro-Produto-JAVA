@@ -28,7 +28,14 @@ public class ModalCadastroProd extends javax.swing.JFrame {
         initComponents();
                 
     }
-
+    
+    /*aqui estou criando um metodo que irá travar um campo para receber apenas números*/
+    public void travarnumero(java.awt.event.KeyEvent evt){
+        String caracteres="0987654321";
+            if(!caracteres.contains(evt.getKeyChar()+"")){
+                evt.consume();
+            }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,6 +45,7 @@ public class ModalCadastroProd extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         TextoUN = new javax.swing.JLabel();
         TextoProdutoAtivo = new javax.swing.JLabel();
         BotaoProdutoAtivoSim = new javax.swing.JRadioButton();
@@ -60,6 +68,7 @@ public class ModalCadastroProd extends javax.swing.JFrame {
 
         TextoProdutoAtivo.setText("Produto Ativo?");
 
+        buttonGroup1.add(BotaoProdutoAtivoSim);
         BotaoProdutoAtivoSim.setText("Sim");
         BotaoProdutoAtivoSim.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,10 +76,17 @@ public class ModalCadastroProd extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(BotaoProdutoAtivoNao);
         BotaoProdutoAtivoNao.setText("Não");
         BotaoProdutoAtivoNao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotaoProdutoAtivoNaoActionPerformed(evt);
+            }
+        });
+
+        jTextField1Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1CodigoKeyTyped(evt);
             }
         });
 
@@ -86,6 +102,11 @@ public class ModalCadastroProd extends javax.swing.JFrame {
         });
 
         BotaoCancelar.setText("Cancelar");
+        BotaoCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotaoCancelarActionPerformed(evt);
+            }
+        });
 
         TextoProduto.setText("Produto:");
 
@@ -197,6 +218,14 @@ public class ModalCadastroProd extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_BotaoFinalizarActionPerformed
 
+    private void BotaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoCancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_BotaoCancelarActionPerformed
+
+    private void jTextField1CodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1CodigoKeyTyped
+    this.travarnumero(evt);
+    }//GEN-LAST:event_jTextField1CodigoKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -213,6 +242,7 @@ public class ModalCadastroProd extends javax.swing.JFrame {
     private javax.swing.JLabel TextoProduto;
     private javax.swing.JLabel TextoProdutoAtivo;
     private javax.swing.JLabel TextoUN;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField jTextField1Codigo;
     private javax.swing.JTextField jTextField1PesoBruto;
     private javax.swing.JTextField jTextField2Produto;
